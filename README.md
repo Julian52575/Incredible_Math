@@ -1,3 +1,3 @@
 # Incredible_Math    
 
-This is the source code I will use to train in DevOps
+The source code for a very simplistic program used to experiment with some DevOps tools on such as Jenkins
