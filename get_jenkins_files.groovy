@@ -10,7 +10,8 @@ job( 'Get Jenkins Files' ) {
     }
 
     steps {
-        shell( readFileFromWorkspace( 'Jenkins/dsl_math.groovy'  ) )
+        shell( ls )
+        shell( readFileFromWorkspace( 'jenkins/dsl_math.groovy'  ) )
     }
 
     postBuildSteps( 'SUCCESS' ) {
