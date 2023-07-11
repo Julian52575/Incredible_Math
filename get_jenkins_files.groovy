@@ -10,7 +10,9 @@ job( 'Get Jenkins Files' ) {
 
 job( 'TEST_JOB_SCRIPT' ) {
     steps {
-        systemGroovyCommand( '**.groovy' )
+        systemGroovyCommand( 'Jenkins/math/*.groovy' )
+
+        systemGroovyCommand( 'Jenkins/math/dsl_math.groovy' )
     }
 }
 
