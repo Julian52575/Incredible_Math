@@ -2,13 +2,9 @@
 pipeline {
 
     stages {
-
-        stage('Cleanup Workspace') {
+        stage('Hello world') {
             steps {
-                cleanWs()
-                sh """
-                echo "Cleaned Up Workspace for ${APP_NAME}"
-                """
+                sh( ' echo "Hello world"' )
             }
         }
 
