@@ -1,5 +1,8 @@
 @Library("Compilation") _
 pipeline {
+
+    agent { any }
+
     stages {
         stage("Hello world") {
             steps {
