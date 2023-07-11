@@ -1,6 +1,5 @@
 @Library("Compilation") _
 pipeline {
-    agent { label "linux" }
     stages {
         stage("Hello world") {
             steps {
