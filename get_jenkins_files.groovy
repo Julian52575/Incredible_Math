@@ -11,9 +11,5 @@ job( 'Get Jenkins Files' ) {
         systemGroovyCommand( 'a/ls_math.groovy' )
     }
 
-    postBuildSteps( 'SUCCESS' ) {
-        shell( "echo 'SUCCESS' " )
-    }
-
 }
 
