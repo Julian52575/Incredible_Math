@@ -8,23 +8,18 @@ job('Fetch and Execute Groovy Files') {
     }
   }
 
-  steps {
-    script {
-      // Fetch the Groovy files from the repository
-      def groovyFiles = findFiles(glob: '**/*.groovy')
 
-      // Execute each Groovy file as a Jenkins job
-      groovyFiles.each { groovyFile ->
+
+  steps {
+    fileOperations {
+      filesMatching('**/*.groovy') {
+        def groovyFile = it.path
         def groovyScript = readFile(groovyFile)
-        def jobName = groovyFile.name.replace('.groovy', '')
-        
-        // Create a new Jenkins job dynamically using the Groovy script
+        def jobName = groovyFile.replace('.groovy', '')
+
         job(jobName) {
           steps {
-            script {
-              // Execute the Groovy script as a Jenkins job
-              systemGroovyScript(groovyScript)
-            }
+            systemGroovyScript(groovyScript)
           }
         }
       }
