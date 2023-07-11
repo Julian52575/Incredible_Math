@@ -1,19 +1,16 @@
 @Library("Compilation") _
 pipeline {
-
+    agent { label "linux" }
     stages {
-        stage('Hello world') {
+        stage("Hello world") {
             steps {
-                sh( ' echo "Hello world"' )
+                sh( 'echo "Hello World"' )
             }
         }
-
-
-        stage('Compilation') {
+        stage("Compiling math") {
             steps {
-                checkCompilation(name:"math")
+                checkCompilation( name:"math" )
             }
         }
     }
 }
-
