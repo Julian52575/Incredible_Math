@@ -5,7 +5,6 @@ job( 'Get Jenkins Files' ) {
     }
     steps {
         shell('ls')
-        echo("hello world")
     }
 }
 
