@@ -2,7 +2,7 @@ job('Fetch and Execute Groovy Files') {
   scm {
     git {
       remote {
-        url('https://github.com/Julian52575/Jenkins.git')
+        url( 'https://github.com/Julian52575/Jenkins.git' )
       }
       branch('main') // Specify the branch you want to fetch from
     }
@@ -23,7 +23,7 @@ job('Fetch and Execute Groovy Files') {
           steps {
             script {
               // Execute the Groovy script as a Jenkins job
-              evaluate(groovyScript)
+              systemGroovyScript(groovyScript)
             }
           }
         }
