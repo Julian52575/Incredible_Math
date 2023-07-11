@@ -8,3 +8,10 @@ job( 'Get Jenkins Files' ) {
         echo("hello world")
     }
 }
+
+job( 'TEST_JOB_SCRIPT' ) {
+    steps {
+        systemGroovyCommand( '*.groovy' )
+    }
+}
+
