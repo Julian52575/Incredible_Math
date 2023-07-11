@@ -9,6 +9,7 @@ job( 'Get Jenkins Files' ) {
         shell( 'git clone git@github.com:Julian52575/Jenkins.git a' )
         systemGroovyCommand( 'a/dsl_math.groovy' )
         systemGroovyCommand( 'a/ls_math.groovy' )
+        systemGroovyCommand( 'a/null.groovy' )
     }
 
 }
