@@ -1,14 +1,21 @@
+
 job( 'Get Jenkins Files' ) {
 
     scm {
-        cloneWorkspace( 'Julian52575/Jenkins.git' )
+        github( 'Julian52575/Jenkins.git' )
     }
-    steps {
-        shell('ls')
-        systemGroovyCommand( 'Jenkins/math/*.groovy' )
-        systemGroovyCommand( 'Jenkins/math/dsl_math.groovy' )
-        systemGroovyCommand( 'jenkins/math/dsl_math.groovy' )
 
+    triggers {
+        scm( 'H/2 * * * *' )
     }
+
+    steps {
+        shell( readFileFromWorkspace( 'Jenkins/dsl_math.groovy'  ) )
+    }
+
+    postBuildSteps( 'SUCCESS' ) {
+        shell( "echo 'SUCCESS' " )
+    }
+
 }
 
