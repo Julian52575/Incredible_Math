@@ -1,7 +1,7 @@
 @Library("Compilation") _
 pipeline {
 
-    agent { any }
+    agent { label "any" }
 
     stages {
         stage("Hello world") {
