@@ -4,7 +4,7 @@ NAME 	= 	math
 all :
 	gcc -o $(NAME) src/main.c
 
-clear :
+clean :
 	rm math
 
 .PHONY:

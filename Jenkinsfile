@@ -12,6 +12,7 @@ pipeline {
         stage("Compiling math") {
             steps {
                 checkCompilation( name:"math" )
+                checkMakefileClean( name:"math" )
             }
         }
     }
