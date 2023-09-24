@@ -13,7 +13,7 @@ pipeline {
             steps {
                 checkCompilation( name:"math" )
                 checkMakefileClean( name:"math" )
-                loadScript( name:"my-coding.sh" )
+                checkCodingStyle()
             }
         }
     }
