@@ -16,7 +16,6 @@ pipeline {
                 checkCompilation( name:"math" )
                 checkMakefileClean( name:"math" )
                 codingErrors = checkCodingStyle()
-                echo "codingErrors"
             }
         }
     }
