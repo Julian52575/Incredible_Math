@@ -11,11 +11,10 @@ pipeline {
         }
         stage("Compiling math") {
             steps {
-                def codingErrors = 0
 
                 checkCompilation( name:"math" )
                 checkMakefileClean( name:"math" )
-                codingErrors = checkCodingStyle()
+                checkCodingStyle()
             }
         }
     }
