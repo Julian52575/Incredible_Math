@@ -25,7 +25,9 @@ pipeline {
 
         stage("Check in-depth") {
             when { expression { params.hasCompiled == 0 } }
-            sh( 'echo "Checking in-depth..."' )
+            steps {
+                sh( 'echo "Checking in-depth..."' )
+            }
         }
 
     }
