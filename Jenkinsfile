@@ -8,25 +8,27 @@ pipeline {
     }
 
     stages {
+        
         stage("Hello world") {
             steps {
                 sh( 'echo "Starting Jenkinsfile.."' )
                 sh( 'ls -l' )
             }
         }
+
         stage("Check Basics") {
             steps {
                 checkBasics( name:"math" )
                 sh "cat new_mouli_log.txt"
             }
         }
-        when {
-            expression { params.hasCompiled == 0 }
-        }
+
         stage("Check in-depth") {
+            when { expression { params.hasCompiled == 0 } }
             sh( 'echo "Checking in-depth..."' )
         }
 
+    }
     post {
         // Clean after build
         always {
@@ -37,6 +39,5 @@ pipeline {
                     patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
                                [pattern: '.propsfile', type: 'EXCLUDE']])
         }
-    }
     }
 }
