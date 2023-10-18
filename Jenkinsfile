@@ -3,8 +3,7 @@ pipeline {
     agent any
 
     parameters {
-        choice(
-            hasCompiled: 0)
+        hasCompiled: 0
     }
 
     stages {
