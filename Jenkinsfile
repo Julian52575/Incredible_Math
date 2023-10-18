@@ -11,10 +11,8 @@ pipeline {
         }
         stage("Compiling math") {
             steps {
-
-                checkCompilation( name:"math" )
-                checkMakefileClean( name:"math" )
-                checkDebugSymbols( name:"math" )
+                checkBasics( name:"math" )
+                sh "cat new_mouli_log"
             }
         }
     }
