@@ -1,4 +1,7 @@
 *.o
 math
+math_debug
 a.out
 test
+*log
+lol

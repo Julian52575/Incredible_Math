@@ -1,4 +1,6 @@
 
+}
+    def dockerImage = "ghcr.io/epitech/coding-style-checker:latest"
 
     
 

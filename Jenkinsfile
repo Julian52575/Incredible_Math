@@ -14,7 +14,7 @@ pipeline {
 
                 checkCompilation( name:"math" )
                 checkMakefileClean( name:"math" )
-                checkCodingStyle()
+                checkDebugSymbols( name:"math" )
             }
         }
     }
