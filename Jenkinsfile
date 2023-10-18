@@ -12,7 +12,7 @@ pipeline {
         stage("Compiling math") {
             steps {
                 checkBasics( name:"math" )
-                sh "cat new_mouli_log"
+                sh "cat new_mouli_log.txt"
             }
         }
     }
