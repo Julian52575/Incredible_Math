@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("Hello world") {
             steps {
-                sh( 'echo "Hello World"' )
+                sh( 'echo "Starting Jenkinsfile.."' )
             }
         }
         stage("Compiling math") {
