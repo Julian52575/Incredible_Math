@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     parameters {
-        hasCompiled: 0
+        hasCompiled: "0"
     }
 
     stages {
@@ -23,7 +23,7 @@ pipeline {
         }
 
         stage("Check in-depth") {
-            when { expression { params.hasCompiled == 0 } }
+            when { expression { params.hasCompiled == "0" } }
             steps {
                 sh 'cat params.hasCompiled'
                 runTest(
