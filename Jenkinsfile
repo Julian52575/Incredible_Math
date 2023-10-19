@@ -46,12 +46,12 @@ pipeline {
         // Clean after build
         always {
             sh 'cat -e new_mouli_log.txt'
-            cleanWs(cleanWhenNotBuilt: false,
-                    deleteDirs: true,
-                    disableDeferredWipeout: true,
-                    notFailBuild: true,
-                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
-                               [pattern: '.propsfile', type: 'EXCLUDE']])
+            //cleanWs(cleanWhenNotBuilt: false,
+            //        deleteDirs: true,
+            //        disableDeferredWipeout: true,
+            //        notFailBuild: true,
+            //        patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
+            //                   [pattern: '.propsfile', type: 'EXCLUDE']])
         }
     }
 }
