@@ -46,6 +46,7 @@ pipeline {
     post {
         // Clean after build
         always {
+            sh 'cat -e new_mouli_log.txt'
             cleanWs(cleanWhenNotBuilt: false,
                     deleteDirs: true,
                     disableDeferredWipeout: true,
