@@ -51,7 +51,7 @@ pipeline {
     post {
         // Clean after build
         always {
-            sh 'cat -e new_mouli_log.txt'
+            sh 'cat new_mouli_log.txt'
             sh 'ls -l'
             //cleanWs(cleanWhenNotBuilt: false,
             //        deleteDirs: true,
