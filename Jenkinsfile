@@ -24,7 +24,7 @@ pipeline {
         stage("Check in-depth") {
             when { expression { params.hasCompiled == "0" } }
             steps {
-                sh 'cat params.hasCompiled'
+                sh "echo params.hasCompiled"
                 runTest(
                     name:"1+1",
                     cmd:"./math + 1 1 ",
