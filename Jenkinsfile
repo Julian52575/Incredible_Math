@@ -4,7 +4,10 @@ pipeline {
 
     parameters {
         string(name: 'Author', defaultValue: 'Julian Bottiglione', description: 'he who started it all')
-        string(name: 'hasCompiled', defaultValue: '0', description: 'has the binary compiled succesfully?')
+    }
+
+    environment {
+        hasCompiled = "0"
     }
 
     stages {
@@ -25,9 +28,9 @@ pipeline {
         }
 
         stage("Check in-depth") {
-            when { expression { params.hasCompiled == "0" } }
+            when { expression { ${hasCompiled} == "0" } }
             steps {
-                sh "echo params.hasCompiled"
+                sh "echo ${hasCompiled}"
                 runTest(
                     name:"1+1",
                     cmd:"./math + 1 1 ",
