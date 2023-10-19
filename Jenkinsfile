@@ -21,7 +21,6 @@ pipeline {
                     name:"math",
                     author:params.Author
                 )
-                sh 'cat new_mouli_log.txt'
             }
         }
 
