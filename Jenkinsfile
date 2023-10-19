@@ -3,6 +3,7 @@ pipeline {
     agent any
 
     parameters {
+        string(name: 'Author', defaultValue: 'Julian Bottiglione', description: 'he who started it all')
         string(name: 'hasCompiled', defaultValue: '0', description: 'has the binary compiled succesfully?')
     }
 
@@ -16,7 +17,10 @@ pipeline {
 
         stage("Check Basics") {
             steps {
-                checkBasics( name:"math" )
+                checkBasics( 
+                    name:"math",
+                    author:params.Author
+                )
                 sh 'cat new_mouli_log.txt'
             }
         }
