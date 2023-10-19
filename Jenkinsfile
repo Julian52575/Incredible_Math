@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     parameters {
-        hasCompiled: "0"
+        string(name: 'hasCompiled', defaultValue: '0', description: 'has the binary compiled succesfully?')
     }
 
     stages {
