@@ -20,7 +20,7 @@ pipeline {
 
         stage("Check Basics") {
             steps {
-                checkBasics( 
+                checkBasics(
                     name:"math",
                     author:params.Author
                 )
@@ -56,7 +56,7 @@ pipeline {
             sh 'ls -l'
             cleanWs(cleanWhenNotBuilt: false,
                     deleteDirs: true,
-                    disableDeferredWipeout: true,
+                    disableDeferredWipeout: false,
                     notFailBuild: true,
                     patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
                                [pattern: '.propsfile', type: 'EXCLUDE']])
