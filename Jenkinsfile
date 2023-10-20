@@ -54,12 +54,9 @@ pipeline {
         always {
             sh 'cat new_mouli_log.txt'
             sh 'ls -l'
-            cleanWs(cleanWhenNotBuilt: false,
+            cleanWs(cleanWhenNotBuilt: true,
                     deleteDirs: true,
                     disableDeferredWipeout: false,
-                    notFailBuild: true,
-                    patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
-                               [pattern: '.propsfile', type: 'EXCLUDE']])
             sh 'ls -l'
         }
     }
