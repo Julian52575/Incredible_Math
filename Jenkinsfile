@@ -56,7 +56,7 @@ pipeline {
             sh 'ls -l'
             cleanWs(cleanWhenNotBuilt: true,
                     deleteDirs: true,
-                    disableDeferredWipeout: false,
+                    disableDeferredWipeout: false)
             sh 'ls -l'
         }
     }
