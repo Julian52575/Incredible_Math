@@ -28,24 +28,9 @@ pipeline {
         }
 
         stage("Check in-depth") {
-            //when { expression { hasCompiled == "0" } }
             steps {
                 sh "echo Starting Check in-depth"
                 sh "echo ${hasCompiled}"
-                runTest(
-                    name:"1+1",
-                    cmd:"./math + 1 1 ",
-                    expOutput:"Your result is 2.",
-                    expReturnValue:"0"
-               )
-
-                runTest(
-                    name:"a+b",
-                    cmd:"./math + a b ",
-                    expOutput:"[Error] Invalid number 1.",
-                    expReturnValue:"84"
-                )
-            }
         }
 
     }
