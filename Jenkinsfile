@@ -30,7 +30,7 @@ pipeline {
         stage("Check in-depth") {
             steps {
                 sh "echo Starting Check in-depth"
-                sh "echo ${hasCompiled}"
+                runTest()
             }
         }
     }
