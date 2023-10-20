@@ -31,8 +31,8 @@ pipeline {
             steps {
                 sh "echo Starting Check in-depth"
                 sh "echo ${hasCompiled}"
+            }
         }
-
     }
     post {
         // Clean after build
@@ -46,6 +46,5 @@ pipeline {
             //        patterns: [[pattern: '.gitignore', type: 'INCLUDE'],
             //                   [pattern: '.propsfile', type: 'EXCLUDE']])
         }
-    }
     }
 }
