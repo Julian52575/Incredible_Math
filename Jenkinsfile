@@ -28,7 +28,7 @@ pipeline {
         }
 
         stage("Check in-depth") {
-            when { expression { hasCompiled == "0" } }
+            //when { expression { hasCompiled == "0" } }
             steps {
                 sh "echo ${hasCompiled}"
                 runTest(
