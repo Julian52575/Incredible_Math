@@ -30,6 +30,7 @@ pipeline {
         stage("Check in-depth") {
             //when { expression { hasCompiled == "0" } }
             steps {
+                sh "echo Starting Check in-depth"
                 sh "echo ${hasCompiled}"
                 runTest(
                     name:"1+1",
