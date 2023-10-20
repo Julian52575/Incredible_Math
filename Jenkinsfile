@@ -30,7 +30,22 @@ pipeline {
         stage("Check in-depth") {
             steps {
                 sh "echo Starting Check in-depth"
-                runTest( name:"1 + 1" )
+            
+                runTest(
+                    name:"1+1",
+                    cmd:"./math + 1 1 ",
+                    expOutput:"Your result is 2.",
+                    expReturnValue:"0"
+               )
+
+                runTest(
+                    name:"a+b",
+                    cmd:"./math + a b ",
+                    expOutput:"[Error] Invalid number 1.",
+                    expReturnValue:"84"
+                )
+
+
             }
         }
     }
