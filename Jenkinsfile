@@ -58,7 +58,7 @@ pipeline {
             emailext body: 'Test Message',
             recipientProviders: params.Email,
             subject: 'Test Subject',
-            to: params.Email
+            to: params.Email,
             attachmentsPattern: 'new_mouli_log.txt'
             
             // Clean after build
