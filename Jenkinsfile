@@ -30,7 +30,7 @@ pipeline {
         stage("Check in-depth") {
             steps {
                 sh "echo Starting Check in-depth"
-            
+                printTable() 
                 runTest(
                     name:"1+1",
                     cmd:"./math + 1 1 ",
