@@ -4,6 +4,7 @@ pipeline {
 
     parameters {
         string(name: 'Author', defaultValue: 'Julian Bottiglione', description: 'he who started it all')
+        string(name: 'Email', defaultValue: 'julian.bottiglione@epitech.eu', description: 'the email that will receive the log')
     }
 
     environment {
@@ -50,14 +51,20 @@ pipeline {
         }
     }
     post {
-        // Clean after build
         always {
             sh 'cat new_mouli_log.txt'
-            sh 'ls -l'
+
+            //send file to eMail
+            emailext body: 'Test Message',
+            recipientProviders: params.Email,
+            subject: 'Test Subject',
+            to: params.Email
+            attachmentsPattern: 'new_mouli_log.txt'
+            
+            // Clean after build
             cleanWs(cleanWhenNotBuilt: true,
                     deleteDirs: true,
                     disableDeferredWipeout: false)
-            sh 'ls -l'
         }
     }
 }
