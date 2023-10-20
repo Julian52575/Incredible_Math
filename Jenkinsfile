@@ -56,7 +56,7 @@ pipeline {
 
             //send file to eMail
             emailext body: 'Test Message',
-            recipientProviders: params.Email,
+            recipientProviders: [params.Email],
             subject: 'Test Subject',
             to: params.Email,
             attachmentsPattern: 'new_mouli_log.txt'
