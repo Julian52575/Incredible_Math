@@ -54,7 +54,7 @@ pipeline {
     }
     post {
         always {
-            logContent = sh (
+            environment.logContent = sh (
                 script: 'cat new_mouli_log.txt',
                 returnStdout: true )
 
