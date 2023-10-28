@@ -54,16 +54,7 @@ pipeline {
     }
     post {
         always {
-            env.logContent = sh (
-                script: 'cat new_mouli_log.txt',
-                returnStdout: true
-            )
-
-            //send file to eMail
-            emailext body: "${env.logContent}",
-            subject: "[New Mouli] Logs for ${env.projectName}",
-            to: params.Email,
-            attachmentsPattern: 'new_mouli_log.txt'
+            sendEmailReport( projectName:env.projectName )
             
             // Clean after build
             cleanWs(cleanWhenNotBuilt: true,
