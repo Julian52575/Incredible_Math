@@ -23,7 +23,7 @@ pipeline {
         stage("Check Basics") {
             steps {
                 script {
-                    def returnV = checkBasics(
+                    env.hasCompiled = checkBasics(
                         name:"math",
                         author:params.Author
                     )
