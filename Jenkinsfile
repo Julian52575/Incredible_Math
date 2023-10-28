@@ -21,6 +21,9 @@ pipeline {
         }
 
         stage("Check Basics") {
+            when {
+                environment name: 'hasCompiled', value: '0'
+            }
             steps {
                 checkBasics(
                     name:"math",
