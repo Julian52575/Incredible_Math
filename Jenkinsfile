@@ -22,11 +22,13 @@ pipeline {
 
         stage("Check Basics") {
             steps {
-                def returnV = checkBasics(
-                    name:"math",
-                    author:params.Author
-                )
-                currentBuild.rawBuild.@properties.get(EnvironmentVariablesNodeProperty.class).envVars.put('hasCompiled', returnV)
+                script {
+                    def returnV = checkBasics(
+                        name:"math",
+                        author:params.Author
+                    )
+                    currentBuild.rawBuild.@properties.get(EnvironmentVariablesNodeProperty.class).envVars.put('hasCompiled', returnV)
+                }
             }
         }
 
