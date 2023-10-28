@@ -33,7 +33,7 @@ pipeline {
 
         stage("Check in-depth") {
             when {
-                expression { return returnV == 0 }
+                expression { return env.hasCompiled == 0 }
             }
             steps {
                 printTable()
