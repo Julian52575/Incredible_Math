@@ -22,7 +22,7 @@ pipeline {
 
         stage("Check Basics") {
             steps {
-                hasCompiled = checkBasics(
+                ${env.hasCompiled} = checkBasics(
                     name:"math",
                     author:params.Author
                 )
