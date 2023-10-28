@@ -8,7 +8,9 @@ pipeline {
     }
 
     environment {
+        projectName = "Incredible Maths"
         hasCompiled = 0
+        logContent = "hi"
     }
 
     stages {
@@ -52,11 +54,13 @@ pipeline {
     }
     post {
         always {
-            sh 'cat new_mouli_log.txt'
+            logContent = sh (
+                script: 'cat new_mouli_log.txt',
+                returnStdout: true )
 
             //send file to eMail
-            emailext body: 'Test Message',
-            subject: 'Test Subject',
+            emailext body: '${environment.Logs}',
+            subject: '[New Mouli] Logs for ${environment.projectName}',
             to: params.Email,
             attachmentsPattern: 'new_mouli_log.txt'
             
