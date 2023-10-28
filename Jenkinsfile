@@ -3,14 +3,13 @@ pipeline {
     agent any
 
     parameters {
+        string(name: 'ProjectName', defaultValue: 'Incredible Math')
         string(name: 'Author', defaultValue: 'Julian Bottiglione', description: 'he who started it all')
         string(name: 'Email', defaultValue: 'julian.bottiglione@epitech.eu', description: 'the email that will receive the log')
     }
 
     environment {
-        projectName = 'Incredible Maths'
         hasCompiled = 0
-        logContent = 'hi'
     }
 
     stages {
@@ -54,7 +53,7 @@ pipeline {
     }
     post {
         always {
-            sendEmailReport( projectName:env.projectName )
+            sendEmailReport( projectName:params.ProjectName )
             
             // Clean after build
             cleanWs(cleanWhenNotBuilt: true,
