@@ -21,11 +21,8 @@ pipeline {
         }
 
         stage("Check Basics") {
-            when {
-                environment name: 'hasCompiled', value: '0'
-            }
             steps {
-                checkBasics(
+                env.hasCompiled = checkBasics(
                     name:"math",
                     author:params.Author
                 )
@@ -33,10 +30,13 @@ pipeline {
         }
 
         stage("Check in-depth") {
+            when {
+                environment name: 'hasCompiled', value: '0'
+            }
             steps {
-                sh "echo Starting Check in-depth"
-                printTable() 
+                printTable()
                 runTestFromCSV()
+                printTableEnd()
             }
         }
     }
