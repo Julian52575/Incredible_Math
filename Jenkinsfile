@@ -22,10 +22,11 @@ pipeline {
 
         stage("Check Basics") {
             steps {
-                def hasCompiled = checkBasics(
+                def returnV = checkBasics(
                     name:"math",
                     author:params.Author
                 )
+                currentBuild.rawBuild.@properties.get(EnvironmentVariablesNodeProperty.class).envVars.put('hasCompiled', returnV)
             }
         }
 
