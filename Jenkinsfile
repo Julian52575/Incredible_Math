@@ -33,7 +33,7 @@ pipeline {
 
         stage("Check in-depth") {
             when {
-                returnV = 0
+                expression { return returnV == 0 }
             }
             steps {
                 printTable()
