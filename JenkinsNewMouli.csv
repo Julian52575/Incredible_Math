@@ -1,3 +1,2 @@
-name,cmd,expOutput,expReturnValue
 1+1,./math + 1 1,Your result is 2.,expReturnValue:0
 a+b,./math + a b,[Error] Invalid number 1.,84

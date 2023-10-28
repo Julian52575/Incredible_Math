@@ -36,21 +36,7 @@ pipeline {
             steps {
                 sh "echo Starting Check in-depth"
                 printTable() 
-                runTest(
-                    name:"1+1",
-                    cmd:"./math + 1 1 ",
-                    expOutput:"Your result is 2.",
-                    expReturnValue:0
-               )
-
-                runTest(
-                    name:"a+b",
-                    cmd:"./math + a b ",
-                    expOutput:"[Error] Invalid number 1.",
-                    expReturnValue:84
-                )
-
-
+                runTestFromCSV()
             }
         }
     }
