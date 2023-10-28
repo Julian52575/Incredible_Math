@@ -27,14 +27,13 @@ pipeline {
                         name:"math",
                         author:params.Author
                     )
-                    currentBuild.rawBuild.@properties.get(EnvironmentVariablesNodeProperty.class).envVars.put('hasCompiled', returnV)
                 }
             }
         }
 
         stage("Check in-depth") {
             when {
-                environment name: 'hasCompiled', value: '0'
+                'returnV', value: '0'
             }
             steps {
                 printTable()
