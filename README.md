@@ -1,3 +1,6 @@
 # Incredible_Math    
 
-The source code for a very simplistic program used to experiment with some DevOps tools on such as Jenkins
+A very basic program that I use when developing my Dev Operation tools.    
+    
+Such as :
+- [Jenkins Shared Library](https://github.com/Julian52575/Jenkins_Shared_Library)
