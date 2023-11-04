@@ -8,4 +8,4 @@ clean :
 	rm math
 
 .PHONY:
-	all clear
+	all clean

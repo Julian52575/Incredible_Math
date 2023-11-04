@@ -10,7 +10,7 @@
 #define s_okay_list "+-*/%"
 
 //Valid symbols : + - * /
-bool valid_symbol(char *symbol)
+static bool valid_symbol(char *symbol)
 {
     if ( strlen(symbol) > 1 )
         return false;
@@ -22,7 +22,7 @@ bool valid_symbol(char *symbol)
     return false;
 }
 
-bool valid_number(char *number)
+static bool valid_number(char *number)
 {
     for (int i = 0; number[i]; i++) {
         if (48 <= number[i] && number[i] <= 57)
@@ -32,7 +32,7 @@ bool valid_number(char *number)
     return true;
 }
 
-int do_calculus(char **av)
+static int do_calculus(char **av)
 {
     int n1 = atoi(av[2]);
     int n2 = atoi(av[3]);
