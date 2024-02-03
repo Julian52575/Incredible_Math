@@ -55,10 +55,17 @@ static int do_calculus(char **av)
     printf("Your result is %d.\n", result);
 }
 
+
 int main(int ac, char **av)
 {
+    if (ac > 1 && (strcmp(av[2], "abort") == 0) ) {
+        abort();
+        return 84;
+    }
+
     if (ac != 4)
         return 1 + (printf("Usage:\t ./math <symbol> <number1> <number2>.\n") * 0);
+
 
     if (valid_symbol(av[1]) == false)
         return 84 + ( printf("[Error] Invalid symbol.\n") * 0);
